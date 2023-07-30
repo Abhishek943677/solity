@@ -10,27 +10,25 @@ import { Button, Link, Paper } from "@mui/material";
 import Image from "next/image";
 
 export default function Home() {
-  // console.log(attributes.products)
   const slickSetting = {
     autoplay: true,
     dots: true,
     speed: 500,
   };
   return (
-    <div className="p-0 ">
+    <div className="p-4 ">
       <div className="flex w-[100vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}
         <Slider
           {...slickSetting}
           className="z-10 lg:w-[40rem] h-fit mb-4 flex-wrap w-full mx-auto max-[630px]:w-full my-4"
         >
-          {" "}
           {/*this will change slider setting also change clasname of image of slider*/}
           <div>
             <Image
               height={300}
               width={600}
-              src="https://plus.unsplash.com/premium_photo-1666184891921-2be4f78ce4ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+              src="https://plus.unsplash.com/premium_photo-1666184891921-2be4f78ce4ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&q=60"
               className="rounded-md w-fit mx-auto"
             />
           </div>
@@ -38,7 +36,7 @@ export default function Home() {
             <Image
               height={300}
               width={600}
-              src="https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvYmxlbSUyMHNvbHZpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+              src="https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvYmxlbSUyMHNvbHZpbmd8ZW58MHx8MHx8&auto=format&fit=crop&q=60"
               className="rounded-md w-fit mx-auto"
             />
           </div>
@@ -46,15 +44,16 @@ export default function Home() {
             <Image
               height={300}
               width={600}
-              src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+              src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2hub2xvZ3l8ZW58MHx8MHx8&auto=format&fit=crop&q=60"
               className="rounded-md w-fit mx-auto"
             />
           </div>
         </Slider>
+
         {/* two */}
         <Box
           elevation={1}
-          className=" justify-center flex-col w-[25rem] mx-auto my-4 p-4 make-body-dark rounded-xl"
+          className=" justify-center flex-col w-[25srem] mx-auto my-4 p-4 make-body-dark rounded-xl"
         >
           <p className="text-3xl px-1">Welcome to Solity</p>
           <div>

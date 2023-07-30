@@ -16,12 +16,12 @@ export default function Home() {
     speed: 500,
   };
   return (
-    <div className="p-4 ">
-      <div className="flex w-[100vw] m-auto justify-center align-middle flex-wrap mx-auto">
+    <div className="p-4  ">
+      <div className="flex w-[94vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}
         <Slider
           {...slickSetting}
-          className="z-10 lg:w-[40rem] h-fit mb-4 flex-wrap w-full mx-auto max-[630px]:w-full my-4"
+          className="z-10 lg:w-[40rem] h-fit mb-4 flex-wrap w-full mx-auto max-[630px]:w-full my-4 "
         >
           {/*this will change slider setting also change clasname of image of slider*/}
           <div>
@@ -50,10 +50,10 @@ export default function Home() {
           </div>
         </Slider>
 
-        {/* two */}
+        {/* two  website initial welcome modal*/}
         <Box
           elevation={1}
-          className=" justify-center flex-col w-[25srem] mx-auto my-4 p-4 make-body-dark rounded-xl"
+          className=" justify-center flex-col w-[25rem] mx-auto my-4 p-4  rounded-xl "
         >
           <p className="text-3xl px-1">Welcome to Solity</p>
           <div>
@@ -70,7 +70,7 @@ export default function Home() {
             className="p-0 text-blue-600 dark:text-white text-lg"
             options={{
               strings: [
-                "We help people learn new and smart things easily, By providing clear, practical advice and examples to become more effective problem solvers.",
+                "Empower Your Learning Journey with Our Smart and Accessible Platform! Unlock the Secrets of Effective Problem Solving through Clear, Practical Advice and Real-Life Examples.",
               ],
               speed: 100,
               waitUntilVisible: false,

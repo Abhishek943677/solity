@@ -13,7 +13,7 @@ export default function Blogpostcard({ post }) {
       // data-aos="zoom-in-up"
       // data-aos-duration="500"
     >
-      <Link href={`/blog/post/${post.url}`} key={post.title}>
+          <Link href={`/blog/post/${post.url}`} key={post.title} className="text-red-700 text-lg">
         <div className="group flex text-center relative overflow-hidden rounded-md cursor-pointer">
           <Image
             width={600}
@@ -24,8 +24,8 @@ export default function Blogpostcard({ post }) {
           />
           <div className="absolute bg-black w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-40" />
         </div>
-        <p className=" w-fit mx-1">
-          {post.title.slice(0, 100)}.....
+        <p className=" w-fit mx-1 hover:opacity-50">
+          {post.title.slice(0, 100)} .....
         </p>
       </Link>
       <div className="flex justify-between ">

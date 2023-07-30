@@ -20,18 +20,16 @@ export default function Products() {
             data-aos-duration="500"
             key={i}
           >
-            <div className="block rounded-lg bg-white shadow-lg dark:bg-slate-800 my-4 mx-auto w-96">
-              <a href="#!" data-te-ripple-init data-te-ripple-color="light">
+            <div className="block rounded-lg bg-white shadow-lg dark:bg-slate-800 my-4 mx-3 w-96 h-fit min-h-[26rem] p-1">
                 <Image
                   width={500}
                   height={500}
-                  className="rounded-t-lg m-auto sm:mx-auto "
+                  className="rounded-t-lg m-auto sm:mx-auto h-[13rem] "
                   src={p.image}
                   alt={p.url}
                 />
-              </a>
               <div className="p-6">
-                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                <h5 className="mb-2 text-xl font-medium leading-tight hover:opacity-50 text-red-800 dark:text-red-800">
                   <Link href={p.urlToWebsite}>{p.title}</Link>
                 </h5>
                 <p className="mb-4 text-base text-neutral-800 dark:text-neutral-200">
@@ -46,7 +44,7 @@ export default function Products() {
                       const shareData = {
                         title: `${p.title}`,
                         text: `${p.description}`,
-                        url: `${p.url}`,
+                        url: `${p.urlToWebsite}`,
                       };
                       try {
                         await navigator.share(shareData);

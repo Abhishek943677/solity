@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <Box 
     elevation={3}
-    class="text-center text-white rounded-md drop-shadow-2xl w-full  max-[419px]:w-[27.5rem] sm:w-full sm:mx-auto">
+    class="text-center text-white rounded-md drop-shadow-2xl w-full  max-[419px]:w-[27.5rem] sm:w-full sm:mx-autoz">
   <div class="container pt-9 mx-auto sm:mx-auto sm:w-full max-[419px]:w-[27.5rem]" >
     <div class="mb-9 flex justify-center ">
       <a href="#!" class="mr-9 text-neutral-800 dark:text-white">

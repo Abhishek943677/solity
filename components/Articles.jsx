@@ -7,19 +7,16 @@ const hindSiliguri = Hind_Siliguri({
   display: "swap",
 });
 
-
 export default function Articles({ html }) {
-  // console.log(html)
-  useEffect(()=>{
-  
+  useEffect(() => {
     if (document.querySelectorAll("code")) {
       const code = document.querySelectorAll("code");
       code.forEach((p) => {
         p.innerHTML = `<div id="code-editor"><code>${p.innerText}</code></div>`;
       });
     }
-  },[]);
-  
+  }, []);
+
   return (
     <div
       dangerouslySetInnerHTML={{ __html: html }}

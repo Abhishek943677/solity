@@ -4,8 +4,10 @@ import ShareIcon from "@mui/icons-material/Share";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import products from "../config/products.json"
+ 
 
-export default function Products({products}) {
+export default function Products() {
  
   return (
     <div className="">
@@ -24,14 +26,13 @@ export default function Products({products}) {
                   width={500}
                   height={500}
                   className="rounded-t-lg m-auto sm:mx-auto "
-                  // src={`${p.imageurl}`}
                   src={p.image}
                   alt={p.url}
                 />
               </a>
               <div className="p-6">
                 <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                  <Link href={p.url}>{p.title}</Link>
+                  <Link href={p.urlToWebsite}>{p.title}</Link>
                 </h5>
                 <p className="mb-4 text-base text-neutral-800 dark:text-neutral-200">
                   {`${p.description}`}
@@ -40,7 +41,6 @@ export default function Products({products}) {
                   <Button
                     type="button"
                     variant="outlined"
-                    // className="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
                     className=" dark:text-white"
                     onClick={async () => {
                       const shareData = {
@@ -50,7 +50,6 @@ export default function Products({products}) {
                       };
                       try {
                         await navigator.share(shareData);
-                        // console.log("clicked")
                       } catch (err) {
                         console.log(err);
                       }

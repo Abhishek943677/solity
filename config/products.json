@@ -1,0 +1,15 @@
+[
+    {
+        "image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.NbfPECA64xbFnmW58MbWDQHaEo%26pid%3DApi%26h%3D160&f=1&ipt=9955ff628d744470bc4a5bed1630f038016ee61586911c9e7ed1cde6f89427b2&ipo=images",
+        "title": "Mcqera | Quiz | MCQs",
+        "urlToWebsite":"https://mcqera-db.vercel.app",
+        "description":"this is the quiz website"
+
+    },
+    {
+        "title": "Onlinemp3grab",
+        "urlToWebsite":"https://onlinemp3grab.vercel.app",
+        "description":"you can download youtube audio from video links",
+        "image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.NbfPECA64xbFnmW58MbWDQHaEo%26pid%3DApi%26h%3D160&f=1&ipt=9955ff628d744470bc4a5bed1630f038016ee61586911c9e7ed1cde6f89427b2&ipo=images"
+    }
+]

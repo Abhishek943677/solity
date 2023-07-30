@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BiAlignMiddle } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
-import importBlogPostsWithContent from "../../logicFunctions/getPostWithContent";
 import Logo from "../partials/Logo";
 import ComputerNav from "../partials/ComputerNav";
 import MobileNav from "../partials/MobileNav";
@@ -47,78 +46,79 @@ const Layout = ({ children }) => {
       setDark(true);
     }
 
-    importBlogPostsWithContent().then((data) => {
-      // console.log(data);
-      setSearchData(data);
-    });
+    // importBlogPostsWithContent().then((data) => {
+    //   // console.log(data);
+    //   setSearchData(data);
+    // });
 
     //hidding dropdown menu of search
-    window.addEventListener("click", function (e) {
-      if (
-        document.getElementById("dropmenu") !== null &&
-        !document.getElementById("dropdown").contains(e.target) &&
-        !document.getElementById("searchTerm").contains(e.target)
-      ) {
-        setShowSearchResultModal(false);
-      }
-      if (
-        document.getElementById("error-msg") !== null &&
-        !document.getElementById("error-msg").contains(e.target) &&
-        !document.getElementById("searchTerm").contains(e.target)
-      ) {
-        document.getElementById("error-msg").style.display = "none";
-      }
-    });
+    // window.addEventListener("click", function (e) {
+    //   if (
+    //     document.getElementById("dropmenu") !== null &&
+    //     !document.getElementById("dropdown").contains(e.target) &&
+    //     !document.getElementById("searchTerm").contains(e.target)
+    //   ) {
+    //     setShowSearchResultModal(false);
+    //   }
+    //   if (
+    //     document.getElementById("error-msg") !== null &&
+    //     !document.getElementById("error-msg").contains(e.target) &&
+    //     !document.getElementById("searchTerm").contains(e.target)
+    //   ) {
+    //     document.getElementById("error-msg").style.display = "none";
+    //   }
+    // });
+    
     //hiding navbar on scroll
     window.addEventListener("scroll", () => {
       setShowNav(false);
     });
   }, [searchResult, showSearchResultModal, setShowSearchResultModal]);
 
-  // runsearch function
-  const runSearch = (value) => {
-    if (value.length === 0) return false;
-    var condition = new RegExp(String(value.trim()));
+  // // runsearch function
+  // const runSearch = (value) => {
+  //   if (value.length === 0) return false;
+  //   var condition = new RegExp(String(value.trim()));
 
-    setSearchParamFromTitle(
-      searchData.filter((el) => condition.test(el.attributes.title))
-    );
+  //   setSearchParamFromTitle(
+  //     searchData.filter((el) => condition.test(el.attributes.title))
+  //   );
 
-    if (serachParamFromTitle.length === 0) {
-      setSearchParamFromHtml(
-        searchData.filter((el) => condition.test(el.html))
-      );
-    }
-  };
+  //   if (serachParamFromTitle.length === 0) {
+  //     setSearchParamFromHtml(
+  //       searchData.filter((el) => condition.test(el.html))
+  //     );
+  //   }
+  // };
 
-  // render search list
-  const renderSearchList = () => {
-    if (serachParamFromTitle.length !== 0) {
-      return (
-        <SearchResultDropdown
-          list={serachParamFromTitle.slice(0, 7)}
-          setShowSearchResultModal={setShowSearchResultModal}
-        />
-      );
-    }
+  // // render search list
+  // const renderSearchList = () => {
+  //   if (serachParamFromTitle.length !== 0) {
+  //     return (
+  //       <SearchResultDropdown
+  //         list={serachParamFromTitle.slice(0, 7)}
+  //         setShowSearchResultModal={setShowSearchResultModal}
+  //       />
+  //     );
+  //   }
 
-    if (serachParamFromHtml.length !== 0) {
-      return (
-        <SearchResultDropdown
-          list={serachParamFromHtml.slice(0, 7)}
-          setShowSearchResultModal={setShowSearchResultModal}
-        />
-      );
-    } else
-      return (
-        <div
-          className="flex  m-auto flex-col  relative top-[7px] w-full h-14 z-50 align-middle text-center bg-red-500"
-          id="error-msg"
-        >
-          <p>{`sorry data is not available`}</p>
-        </div>
-      );
-  };
+  //   if (serachParamFromHtml.length !== 0) {
+  //     return (
+  //       <SearchResultDropdown
+  //         list={serachParamFromHtml.slice(0, 7)}
+  //         setShowSearchResultModal={setShowSearchResultModal}
+  //       />
+  //     );
+  //   } else
+  //     return (
+  //       <div
+  //         className="flex  m-auto flex-col  relative top-[7px] w-full h-14 z-50 align-middle text-center bg-red-500"
+  //         id="error-msg"
+  //       >
+  //         <p>{`sorry data is not available`}</p>
+  //       </div>
+  //     );
+  // };
 
   return (
     <div>
@@ -126,7 +126,7 @@ const Layout = ({ children }) => {
         <div className="flex justify-between flex-shrink">
           <Logo />
           <div className="sm:w-[400px] lg:w-fit" id="dropdown">
-            <TextField
+            {/* <TextField
               variant="standard"
               placeholder="please search"
               type="search"
@@ -158,11 +158,11 @@ const Layout = ({ children }) => {
                 document.getElementById("error-msg") !== null && name();
               }}
               onBlur={() => setMakeblur(false)}
-            />
+            /> */}
             {/* search result modal */}
-            {showSearchResultModal &&
+            {/* {showSearchResultModal &&
               searchTerm.length !== 0 &&
-              renderSearchList()}
+              renderSearchList()} */}
           </div>
 
           {/* <BiAlignMiddle

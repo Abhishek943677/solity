@@ -1,18 +1,23 @@
 import { Divider, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import Articles from '../../components/Articles';
+import about from "../../config/about.json"
 
-import content from '../../content/about.md';
 
 const About = () => {
-  const { attributes, html } = content;
   return (
     <div>
       <main className='lg:w-8/12 sm:full sm:px-3 lg:mx-32 sm:mx-auto px-3'>
         <p className='text-4xl px-3'>ABOUT SOLITY</p>
         <Divider/>
-      <Articles html={html} />
+        <section>
+                {about.map((element, index) => {
+                    return <div key={index}>
+                        <h1 className='text-2xl my-1 py-3'>{element.heading}:</h1>
+                        <p>{element.reply}</p>
+                    </div>
+                })}
+            </section>
       </main>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import content from "../content/home.md";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,7 +10,6 @@ import { Button, Link, Paper } from "@mui/material";
 import Image from "next/image";
 
 export default function Home() {
-  const { attributes, html } = content;
   // console.log(attributes.products)
   const slickSetting = {
     autoplay: true,
@@ -84,7 +82,7 @@ export default function Home() {
       </div>
       <Aboutme />
       
-      <Products products={attributes.products} />
+      <Products />
     </div>
   );
 }

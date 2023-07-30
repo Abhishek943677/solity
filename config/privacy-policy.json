@@ -1,0 +1,28 @@
+{
+    "menu":[
+        {
+            "heading":"Information We Collect",
+            "reply":"When you visit our website, we may collect certain information about your device, other technical information. We may also collect information about your activity on our website, such as the pages you visit and the links you click.In addition, we may collect personal information that you voluntarily provide to us, such as your name and email address when you sign up for our newsletter or contact us through our website."
+        },
+        {
+            "heading":"How We Use Your Information",
+            "reply":"We use the information we collect to improve our website, analyze trends, and provide you with a better user experience. We may also use your personal information to respond to your inquiries, provide you with information you have requested, and send you newsletters. we dont't share your information with third-party service providers."
+        },
+        {
+            "heading":"Cookies",
+            "reply":"We use cookies on our website to collect information about your use of our website and to improve your user experience. Cookies are small data files that are placed on your device when you visit our website. You can choose to accept or decline cookies through your browser settings."
+        },
+        {
+            "heading":"Security",
+            "reply":"We take reasonable measures to protect the information we collect from unauthorized access, use, and disclosure. However, no data transmission over the internet or wireless network can be guaranteed to be 100% secure."
+        },
+        {
+            "heading":"Links to Other Websites",
+            "reply":"Our website may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third-party's website. We strongly advise you to review the privacy policy of every website you visit."
+        },
+        {
+            "heading":"Changes to This Privacy Policy",
+            "reply":"We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes."
+        }
+    ]
+}

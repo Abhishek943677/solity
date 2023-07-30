@@ -1,0 +1,17 @@
+{
+    "menu":[
+        {
+            "path":"/about" ,
+            "name":"About"
+        },
+        {
+            "path":"/privacy-policy",
+            "name":"Privacy Policy"
+        },
+        {
+            "path":"/contact",
+            "name":"Contact Us"
+        }
+
+    ]
+}

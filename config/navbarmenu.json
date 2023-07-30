@@ -1,0 +1,13 @@
+{
+    "menu":[
+        {
+            "path":"/" ,
+            "name":"Home"
+        },
+        {
+            "path":"/blog/1",
+            "name":"Blogs"
+        }
+
+    ]
+}

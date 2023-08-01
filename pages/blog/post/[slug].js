@@ -92,6 +92,8 @@ export async function getStaticProps(context) {
       props: {
         blogpost: JSON.stringify(blogpost[0]),
       },
+      revalidate: 600,
+
     };
 
   } catch (error) {

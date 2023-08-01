@@ -89,6 +89,8 @@ export async function getStaticProps(context) {
         noOfPageForPagination,
         UserBlogPage,
       },
+      revalidate: 600,
+
     };
   } catch (error) {
     return {
@@ -97,6 +99,7 @@ export async function getStaticProps(context) {
         noOfPageForPagination: 1,
         UserBlogPage,
       },
+      revalidate: 600,
     };
   }
 }

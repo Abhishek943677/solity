@@ -1,0 +1,6 @@
+User-agent: *
+
+Disallow: /admin/
+
+# Allow sitemap file
+Sitemap: https://www.example.com/sitemap.xml

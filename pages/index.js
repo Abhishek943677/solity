@@ -70,7 +70,7 @@ export default function Home() {
             className="p-0 text-blue-600 dark:text-white text-lg"
             options={{
               strings: [
-                "Empower Your Learning Journey with Our Smart and Accessible Platform! Unlock the Secrets of Effective Problem Solving through Clear, Practical Advice and Real-Life Examples.",
+                "A captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics."
               ],
               speed: 100,
               waitUntilVisible: false,

@@ -4,6 +4,7 @@ import "../styles/globals.css";
 //animate on scroll library
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Seo from "../lib/seo.js";
 
 
 function MyApp({ Component, pageProps }) {
@@ -21,9 +22,12 @@ function MyApp({ Component, pageProps }) {
     return <></>;
   } else {
     return (
+      <>
+      <Seo />
       <Layout>
-          <Component {...pageProps}  />
+        <Component {...pageProps}  />
       </Layout>
+      </>
     );
   }
 }

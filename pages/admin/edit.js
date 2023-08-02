@@ -8,6 +8,9 @@ import SuccessSnackBar from "../../components/partials/SuccessSnackBar";
 import FailureSnackBar from "../../components/partials/FailureSnackBar";
 import SunEditorPanel from "../../components/admin/SunEditorPanel";
 import Spinner from "../../components/partials/Spinner";
+import Articles from "../../components/Articles";
+import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 export default function Edit({ topicData }) {
   //   console.log(JSON.parse(data));
@@ -40,18 +43,21 @@ export default function Edit({ topicData }) {
       thumbnail: JSON.parse(topicData).thumbnail,
     });
     setEditorContent(JSON.parse(topicData).editorContent);
+
+    document.getElementById("change_button").scrollIntoView(); // scroll to some points for better view
+
   }, []);
 
   const handleSave = () => {
     axios
       .post("/api/blogs/editTopic", {
-        title:blog.title,
-        seo_description:blog.seo_description,
-        seo_keywords:blog.seo_description,
-        author:blog.author,
-        read_minutes:blog.read_min,
-        publish_date:blog.publish_date,
-        thumbnail:blog.thumbnail,
+        title: blog.title,
+        seo_description: blog.seo_description,
+        seo_keywords: blog.seo_description,
+        author: blog.author,
+        read_minutes: blog.read_min,
+        publish_date: blog.publish_date,
+        thumbnail: blog.thumbnail,
         editorContent,
         id: router.query.id,
       })
@@ -68,24 +74,30 @@ export default function Edit({ topicData }) {
       });
   };
 
-
-// Event handler to update input values
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setBlog((prevInputValues) => ({
-    ...prevInputValues,
-    [name]: value,
-  }));
-};
-
-
+  // Event handler to update input values
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBlog((prevInputValues) => ({
+      ...prevInputValues,
+      [name]: value,
+    }));
+  };
 
   const handleChangeContent = (content) => {
     setEditorContent(content);
   };
 
   return (
-    <div className="px-4 bg-gray-400 rounded-md py-6">
+    <div className="px-4 bg-gray-400 rounded-md py-6 z-50">
+      
+      <NextSeo
+        robotsProps={{
+          noindex: true, // true to set noindex, false to allow indexing
+          nofollow: true, // true to set nofollow, false to allow following links
+          // other robots meta tag properties if needed
+        }}
+      />
+
       <SuccessSnackBar
         open={openSuccessSnack}
         setOpen={setOpenSuccessSnack}
@@ -96,6 +108,10 @@ const handleInputChange = (e) => {
         setOpen={setOpenFailureSnack}
         msg={msg}
       />
+
+      <Link href="/admin?name=abhishek">
+        <Button variant="contained" id="change_button">Add Topics</Button>
+      </Link>
 
       {/* input section */}
       <TextField
@@ -204,10 +220,12 @@ const handleInputChange = (e) => {
       />
 
       <p className="text-center">WRITE THE CONTENT</p>
-      <SunEditorPanel
-        handleChange={handleChangeContent}
-        editorContent={editorContent}
-      />
+      <div className="px-3">
+        <SunEditorPanel
+          handleChange={handleChangeContent}
+          editorContent={editorContent}
+        />
+      </div>
 
       <div className="h-fit mx-auto my-2 w-full flex justify-center">
         <Button
@@ -226,25 +244,20 @@ const handleInputChange = (e) => {
           {sent ? <Spinner /> : "save blogs topic"}
         </Button>
       </div>
+      <h1 className="text-2xl text-center text-[#008080] my-1">
+        Your blog content looks like this on the webpage
+      </h1>
+      <div className=" pt-3 px-2 rounded-md make-com-dark">
+        <Articles html={editorContent} />
+      </div>
     </div>
   );
 }
 
 //---------------------- server side----------------------
 export async function getServerSideProps(context) {
-  // // user authentication
-  // const session = await getSession({ req: context.req });
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/api/auth/signin",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
-
-   // admin validation
-   try {
+  // admin validation
+  try {
     if (context.query.name !== "abhishek") {
       return {
         redirect: {

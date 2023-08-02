@@ -5,6 +5,7 @@ import SuccessSnackBar from "../partials/SuccessSnackBar";
 import FailureSnackBar from "../partials/FailureSnackBar";
 import axios from "axios";
 import Spinner from "../partials/Spinner";
+import Articles from "../Articles";
 
 export default function AddTopic() {
   const [openSuccessSnack, setOpenSuccessSnack] = useState(false);
@@ -14,14 +15,13 @@ export default function AddTopic() {
 
   const [editorContent, setEditorContent] = useState("");
   const [blog, setBlog] = useState({
-    title: "first post",
-    seo_description: "this is description",
-    seo_keywords: "a,b,c,d,e",
-    author: "abhishek",
-    read_minutes: "2",
-    publish_date: "20/12/2014",
-    thumbnail:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.1YM53mG10H_U25iPjop83QHaEo%26pid%3DApi&f=1&ipt=1474d94c880b5084e29ce5844e7180c12bc884f02d2beb18d3e4fdaeef0a0b80&ipo=images",
+    title: "",
+    seo_description: "",
+    seo_keywords: "",
+    author: "Akshay",
+    read_minutes: "3",
+    publish_date: "",
+    thumbnail:""
   });
 
   const handleSave = () => {
@@ -192,6 +192,11 @@ export default function AddTopic() {
           {/* save question */}
           {sent ? <Spinner /> : "save blog"}
         </Button>
+      </div>
+      <h1 className="text-2xl text-center text-[#008080] my-1">
+        Your blog content looks like this on the webpage</h1>
+      <div className="border border-green-500 pt-3 px-2 rounded-md make-com-dark">
+        <Articles html={editorContent} />
       </div>
     </div>
   );

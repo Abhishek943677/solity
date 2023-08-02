@@ -1,34 +1,33 @@
 import Image from "next/image";
 import React from "react";
-import Head from "next/head";
 import Articles from "../../../components/Articles";
 import { mongoConnectBlogs } from "../../../lib/mongoConnectBlogs";
+import { NextSeo } from "next-seo";
 
 export default function Post({ blogpost }) {
   if (!blogpost) return <div>not found</div>;
 
   return (
     <div>
-      {/* seo works */}
-      <Head>
-        <title>{JSON.parse(blogpost)?.title || `solity.fun`}</title>
-        <meta
-          name="description"
-          content={
-            JSON.parse(blogpost)?.seo_description || `website description`
-          }
-        />
-        <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-      </Head>
+      {/* seo */}
+      <NextSeo
+        title={JSON.parse(blogpost)?.title || `solity.fun`}
+        description={
+          JSON.parse(blogpost)?.seo_description ||
+          `Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
+        }
+        canonical={`https://solity.fun/blog/post/${JSON.parse(blogpost)?.url}}`}
+      />
+      {/* seo */}
+
+      <h1 className="text-center font-normal text-3xl m-2 text-[#008080] lg:w-2/3 sm:w-5/6 max-[639px]:px-4 mx-auto">
+        {JSON.parse(blogpost).title}
+      </h1>
 
       <article className="flex justify-center flex-col lg:w-2/3 sm:w-5/6 max-[639px]:px-4 mx-auto">
-        <h1 className="text-center font-normal text-3xl m-2">
-          {JSON.parse(blogpost).title}
-        </h1>
         <div className="flex justify-between top-0">
           <div className="flex">
-            <p className="mx-3">{JSON.parse(blogpost)?.author || `Unknown`}</p>
+            <p className="mx-3 text-blue-400">{JSON.parse(blogpost)?.author || `Unknown`}</p>
             <p className="mx-3">{JSON.parse(blogpost)?.publish_date}</p>
           </div>
 
@@ -39,6 +38,7 @@ export default function Post({ blogpost }) {
           </div>
         </div>
         <Image
+          loading="eager"
           width={500}
           height={500}
           src={JSON.parse(blogpost).thumbnail}
@@ -50,9 +50,6 @@ export default function Post({ blogpost }) {
     </div>
   );
 }
-
-
-
 
 export async function getStaticPaths() {
   const db = await mongoConnectBlogs(); // my function to connect with db
@@ -93,9 +90,7 @@ export async function getStaticProps(context) {
         blogpost: JSON.stringify(blogpost[0]),
       },
       revalidate: 600,
-
     };
-
   } catch (error) {
     return {
       redirect: {

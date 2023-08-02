@@ -2,14 +2,24 @@ import React from "react";
 import Blogpostcard from "../../components/Blogpostcard";
 import { mongoConnectBlogs } from "../../lib/mongoConnectBlogs";
 import PaginationModal from "../../components/Pagination";
+import { NextSeo } from "next-seo";
 
 export default function Page({postList,noOfPageForPagination,UserBlogPage}) {
 
   return (
     <div>
-      <p className="text-3xl text-center">
+
+      {/* seo */}
+      <NextSeo
+        title={`Solity | Blog Page ${UserBlogPage}`}
+        description={`Welocome solity blog page. Delve into a diverse array of topics. Join us on a journey of personal development, discovering fresh perspectives, and gaining knowledge. `}
+        canonical={`https://solity.fun/blog/page/${UserBlogPage}`}
+      />
+      {/* seo */}
+
+      <h1 className="text-3xl text-center">
         Welcome to blogs at <span>solity.fun</span>
-      </p>
+      </h1>
       <div className="flex flex-row flex-wrap justify-center mx-auto my-6">
         {postList !== [] &&
           JSON.parse(postList).map((post, index) => {

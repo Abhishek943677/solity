@@ -77,11 +77,6 @@ const Layout = ({ children }) => {
           <Logo />
           <div className="sm:w-[400px] lg:w-fit" id="dropdown"></div>
 
-          <BiAlignMiddle
-            className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
-            onClick={() => setShowNav((prev) => !prev)}
-          />
-
           {!showNav ? (
             <BiAlignMiddle
               className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"

@@ -32,6 +32,7 @@ export default function SunEditorPanel({handleChange,editorContent}) {
             ["preview", "print"],
           ],
           minHeight:"200px",
+          maxHeight:"400px",
           defaultTag: "div",
           showPathLabel: false,
         }}

@@ -4,7 +4,7 @@ import "../styles/globals.css";
 //animate on scroll library
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Seo from "../lib/seo.js";
+import Seo from "../lib/Seo.js";
 
 
 function MyApp({ Component, pageProps }) {

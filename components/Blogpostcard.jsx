@@ -2,7 +2,7 @@ import { Button, Card, Paper } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ShareIcon from '@mui/icons-material/Share';
+import ShareIcon from "@mui/icons-material/Share";
 
 export default function Blogpostcard({ post }) {
   return (
@@ -13,12 +13,17 @@ export default function Blogpostcard({ post }) {
       // data-aos="zoom-in-up"
       // data-aos-duration="500"
     >
-          <Link href={`/blog/post/${post.url}`} key={post.title} className="text-red-700 text-lg">
+      <Link
+        href={`/blog/post/${post.url}`}
+        key={post.title}
+        className="text-red-700 text-lg"
+      >
         <div className="group flex text-center relative overflow-hidden rounded-md cursor-pointer">
           <Image
             width={600}
             height={600}
             src={post.thumbnail}
+            quality={50}
             alt="An image"
             className="rounded-md object-cover ease-in-out duration-500 group-hover:rotate-4 group-hover:scale-125 w-full max-h-64"
           />
@@ -29,13 +34,13 @@ export default function Blogpostcard({ post }) {
         </p>
       </Link>
       <div className="flex justify-between ">
-        <p className="text-sm my-auto mx-2">12/02/2023</p>
+        <p className="text-sm my-auto mr-2 text-[#439285]">{post?.publish_date || ""}</p>
         <Button
-        // variant="outlined"
+          // variant="outlined"
           className="mx-1"
           onClick={async () => {
             const shareData = {
-              title: "Blog.solity.fun",
+              title: `${post.title}` ,
               text: `${post.title}`,
               url: `https://solity.fun/blog/post/${post.url}`,
             };
@@ -46,7 +51,7 @@ export default function Blogpostcard({ post }) {
             }
           }}
         >
-            <ShareIcon className=" h-8 w-8"/>
+          <ShareIcon className=" h-8 w-8" />
         </Button>
       </div>
     </Paper>

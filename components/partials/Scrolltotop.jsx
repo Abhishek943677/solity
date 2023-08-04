@@ -30,7 +30,7 @@ export default function Scrolltotop() {
         type="button"
         data-mdb-ripple="true"
         data-mdb-ripple-color="light"
-        className=" bg-emerald-500 text-white rounded-2xl shadow-md hover:bg-emerald-700 hover:shadow-lg transition duration-150 ease-in-out bottom-5 right-5 fixed hidden p-2  z-50"
+        className=" bg-[#01c3dd] text-white rounded-2xl shadow-md hover:opacity-50 hover:shadow-lg transition duration-150 ease-in-out bottom-5 right-5 fixed hidden p-2  z-50"
         id="btn-back-to-top"
         onClick={() => {
           backToTop();

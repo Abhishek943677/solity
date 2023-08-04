@@ -1,0 +1,58 @@
+{
+    "name": "Solity",
+    "short_name": "Solity",
+    "description": "Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics.",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "purpose": "maskable"
+        }
+    ],
+    "categories": [
+        "education",
+        "social"
+    ],
+    "shortcuts": [
+        {
+            "name": "Blogs",
+            "url": "/blog/1"
+        },
+        {
+            "name": "About",
+            "url": "/about"
+        },
+        {
+            "name": "Contact Us",
+            "url": "/contact"
+        }
+    ],
+    "start_url": ".",
+    "theme_color": "#01c3dd",
+    "background_color": "#01c3dd",
+    "display": "standalone"
+}

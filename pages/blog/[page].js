@@ -17,9 +17,10 @@ export default function Page({postList,noOfPageForPagination,UserBlogPage}) {
       />
       {/* seo */}
 
-      <h1 className="text-3xl text-center">
+      <h1 className="text-3xl text-center text-[#008080]">
         Welcome to blogs at <span>solity.fun</span>
       </h1>
+
       <div className="flex flex-row flex-wrap justify-center mx-auto my-6">
         {postList !== [] &&
           JSON.parse(postList).map((post, index) => {
@@ -83,7 +84,7 @@ export async function getStaticProps(context) {
 
     const postList = await collection
       .find()
-      .project({ seo_description: 1, title: 1, url: 1, thumbnail: 1 })
+      .project({ seo_description: 1, title: 1, url: 1, thumbnail: 1,publish_date:1 })
       .skip(skipped)
       .limit(totalTopicsPerPage)
       .toArray();

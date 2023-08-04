@@ -3,6 +3,7 @@ import React from "react";
 import Articles from "../../../components/Articles";
 import { mongoConnectBlogs } from "../../../lib/mongoConnectBlogs";
 import { NextSeo } from "next-seo";
+import SocialShare from "../../../components/partials/SocialShare";
 
 export default function Post({ blogpost }) {
   if (!blogpost) return <div>not found</div>;
@@ -26,9 +27,13 @@ export default function Post({ blogpost }) {
 
       <article className="flex justify-center flex-col lg:w-2/3 sm:w-5/6 max-[639px]:px-4 mx-auto">
         <div className="flex justify-between top-0">
+
           <div className="flex">
-            <p className="mx-3 text-blue-400">{JSON.parse(blogpost)?.author || `Unknown`}</p>
-            <p className="mx-3">{JSON.parse(blogpost)?.publish_date}</p>
+            <p className="mx-3">
+              {JSON.parse(blogpost)?.author || `Unknown`}
+            </p>
+
+            <p className="mx-3 text-emerald-700">{JSON.parse(blogpost)?.publish_date}</p>
           </div>
 
           <div>
@@ -37,12 +42,20 @@ export default function Post({ blogpost }) {
             } min read`}</p>
           </div>
         </div>
+
         <Image
           loading="eager"
           width={500}
           height={500}
+          quality={70}
           src={JSON.parse(blogpost).thumbnail}
           className="rounded-md w-full m-auto my-2"
+        />
+
+        <SocialShare
+          url={JSON.parse(blogpost).url}
+          title={JSON.parse(blogpost).title}
+          description={JSON.parse(blogpost).seo_description}
         />
 
         <Articles html={JSON.parse(blogpost).editorContent} />

@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
     <div>
       {/* change in url indicator */}
       {urlChange ? (
-        <div className=" border-0 rounded-md fixed top-0 w-full bg-emerald-700 ">
+        <div className=" border-0 rounded-md fixed top-0 w-full bg-[#01c3dd] z-50">
           <LinearProgress color="inherit"  sx={{ height: "5px" }} />
         </div>
       ) : (

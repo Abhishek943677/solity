@@ -8,6 +8,7 @@ import TypeIt from "typeit-react";
 import { Box } from "@mui/system";
 import { Button, Link, Paper } from "@mui/material";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Home() {
   const slickSetting = {
@@ -17,6 +18,11 @@ export default function Home() {
   };
   return (
     <div className="p-4  ">
+      <Head >
+      <meta name="description" content="Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. " />  
+      <meta property="og:title" content="Solity | A Blog Page"></meta>
+          </Head>
+
       <div className="flex w-[94vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}
         <Slider

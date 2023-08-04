@@ -34,25 +34,30 @@ export default function Blogpostcard({ post }) {
         </p>
       </Link>
       <div className="flex justify-between ">
-        <p className="text-sm my-auto mr-2 text-[#439285]">{post?.publish_date || ""}</p>
-        <Button
-          // variant="outlined"
-          className="mx-1"
-          onClick={async () => {
-            const shareData = {
-              title: `${post.title}` ,
-              text: `${post.title}`,
-              url: `https://solity.fun/blog/post/${post.url}`,
-            };
-            try {
-              await navigator.share(shareData);
-            } catch (err) {
-              console.log(err);
-            }
-          }}
-        >
-          <ShareIcon className=" h-8 w-8" />
-        </Button>
+        <p className="text-sm my-auto mr-2 text-[#439285]">
+          {post?.publish_date || ""}
+        </p>
+
+        {/* this is custom share button with navigator api */}
+        {navigator.canShare && (
+          <Button
+            className="mx-1"
+            onClick={async () => {
+              const shareData = {
+                title: `${post.title}`,
+                text: `${post.title}`,
+                url: `https://solity.fun/blog/post/${post.url}`,
+              };
+              try {
+                await navigator.share(shareData);
+              } catch (err) {
+                console.log(err);
+              }
+            }}
+          >
+            <ShareIcon className="h-8 w-8" />
+          </Button>
+        )}
       </div>
     </Paper>
   );

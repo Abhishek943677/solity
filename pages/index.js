@@ -18,10 +18,13 @@ export default function Home() {
   };
   return (
     <div className="p-4  ">
-      <Head >
-      <meta name="description" content="Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. " />  
-      <meta property="og:title" content="Solity | A Blog Page"></meta>
-          </Head>
+      <Head>
+        <meta
+          name="description"
+          content="Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. "
+        />
+        <title>"Solity | A Blog Page"</title>
+      </Head>
 
       <div className="flex w-[94vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}
@@ -35,7 +38,7 @@ export default function Home() {
               height={300}
               width={600}
               quality={30}
-              src="https://images.unsplash.com/photo-1496942299866-9e7ab403e614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1496942299866-9e7ab403e614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80"
               className="rounded-md w-fit mx-auto"
             />
           </div>
@@ -48,7 +51,7 @@ export default function Home() {
               className="rounded-md w-fit mx-auto"
             />
           </div>
-         
+
           <div>
             <Image
               height={300}
@@ -80,7 +83,7 @@ export default function Home() {
             className="p-0 text-blue-600 dark:text-white text-lg"
             options={{
               strings: [
-                "A captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics."
+                "A captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics.",
               ],
               speed: 100,
               waitUntilVisible: false,
@@ -90,7 +93,7 @@ export default function Home() {
         </Box>
       </div>
       <Aboutme />
-      
+
       <Products />
     </div>
   );

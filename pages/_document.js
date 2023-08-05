@@ -11,6 +11,12 @@ class MyDocument extends Document {
           <meta name="robots" content="index, follow" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="msapplication-TileColor" content="#01c3dd" />
+          {/* google ads */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9081069734389938"
+            crossorigin="anonymous"
+          ></script>
 
           <link
             rel="apple-touch-icon"
@@ -81,7 +87,6 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-
         </Head>
         <body>
           <Main />

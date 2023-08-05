@@ -109,7 +109,7 @@ export async function getStaticProps(context) {
     return {
       redirect: {
         destination: "/blog/1",
-        permanent: false,
+        permanent: true,
       },
     };
   }

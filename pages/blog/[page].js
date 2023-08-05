@@ -3,7 +3,6 @@ import Blogpostcard from "../../components/Blogpostcard";
 import { mongoConnectBlogs } from "../../lib/mongoConnectBlogs";
 import PaginationModal from "../../components/Pagination";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 
 export default function Page({
   postList,

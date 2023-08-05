@@ -29,8 +29,9 @@ export default function Post({ blogpost }) {
         <div className="flex justify-between top-0">
 
           <div className="flex">
+
             <p className="mx-3">
-              {JSON.parse(blogpost)?.author || `Unknown`}
+              {JSON.parse(blogpost)?.author || `From Solity`}
             </p>
 
             <p className="mx-3 text-emerald-700">{JSON.parse(blogpost)?.publish_date}</p>
@@ -47,7 +48,7 @@ export default function Post({ blogpost }) {
           loading="eager"
           width={500}
           height={500}
-          quality={70}
+          quality={60}
           src={JSON.parse(blogpost).thumbnail}
           className="rounded-md w-full m-auto my-2"
         />

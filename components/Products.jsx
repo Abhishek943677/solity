@@ -24,9 +24,10 @@ export default function Products() {
                 <Image
                   width={500}
                   height={500}
+                  quality={30}
                   className="rounded-t-lg m-auto sm:mx-auto h-[13rem] "
                   src={p.image}
-                  alt={p.url}
+                  alt={p.title}
                 />
               <div className="p-6">
                 <h5 className="mb-2 text-xl font-medium leading-tight hover:opacity-50 text-red-800 dark:text-red-800">

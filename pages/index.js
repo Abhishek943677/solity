@@ -18,9 +18,6 @@ const Page = () => {
   };
   return (
     <div className="p-4  ">
-      <Head>
-        <title>solity hai ye</title>
-      </Head>
       <div className="flex w-[94vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}
         <Slider

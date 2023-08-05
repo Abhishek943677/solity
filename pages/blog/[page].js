@@ -12,9 +12,7 @@ export default function Page({
 }) {
   return (
     <div>
-      <Head>
-        <title>solity page 1 blogs</title>
-      </Head>
+     
       {/* seo */}
       <NextSeo
         title={`Solity | Blog Page ${UserBlogPage}`}

@@ -3,12 +3,18 @@ import Blogpostcard from "../../components/Blogpostcard";
 import { mongoConnectBlogs } from "../../lib/mongoConnectBlogs";
 import PaginationModal from "../../components/Pagination";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 
-export default function Page({postList,noOfPageForPagination,UserBlogPage}) {
-
+export default function Page({
+  postList,
+  noOfPageForPagination,
+  UserBlogPage,
+}) {
   return (
     <div>
-
+      <Head>
+        <title>solity page 1 blogs</title>
+      </Head>
       {/* seo */}
       <NextSeo
         title={`Solity | Blog Page ${UserBlogPage}`}
@@ -42,10 +48,6 @@ export default function Page({postList,noOfPageForPagination,UserBlogPage}) {
     </div>
   );
 }
-
-
-
-
 
 export async function getStaticPaths() {
   const db = await mongoConnectBlogs(); // my function to connect with db
@@ -84,7 +86,13 @@ export async function getStaticProps(context) {
 
     const postList = await collection
       .find()
-      .project({ seo_description: 1, title: 1, url: 1, thumbnail: 1,publish_date:1 })
+      .project({
+        seo_description: 1,
+        title: 1,
+        url: 1,
+        thumbnail: 1,
+        publish_date: 1,
+      })
       .skip(skipped)
       .limit(totalTopicsPerPage)
       .toArray();
@@ -101,7 +109,6 @@ export async function getStaticProps(context) {
         UserBlogPage,
       },
       revalidate: 600,
-
     };
   } catch (error) {
     return {

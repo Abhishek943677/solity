@@ -18,7 +18,7 @@ export default function Logo() {
       >
         SOLITY
         <div className="mx-2">
-        <Image height={40} width={40} src="/android-chrome-192x192.png"></Image>
+        <Image height={40} width={40} src="/android-chrome-192x192.png" alt="solity.fun website logo"></Image>
 
         </div>
       </Link>

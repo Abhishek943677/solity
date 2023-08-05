@@ -18,13 +18,6 @@ export default function Home() {
   };
   return (
     <div className="p-4  ">
-      <Head>
-        <meta
-          name="description"
-          content="Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. "
-        />
-        <title>"Solity | A Blog Page"</title>
-      </Head>
 
       <div className="flex w-[94vw] m-auto justify-center align-middle flex-wrap mx-auto">
         {/* one */}

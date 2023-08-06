@@ -4,9 +4,8 @@ import AddTopic from "../../components/admin/AddTopic";
 import AdminPanel from "../../components/admin/AdminPanel";
 import Head from "next/head";
 
-const Index = ({ data }) => {
+const Index = () => {
   const [edit, setEdit] = useState(false);
-  console.log(data);
 
   useEffect(() => {
     document.getElementById("change_button").scrollIntoView();
@@ -32,50 +31,32 @@ const Index = ({ data }) => {
 };
 
 //----------------------- server auth and admin authentication----------------------------
-// export async function getServerSideProps(context) {
-//   console.log(context.query);
-
-//   // admin validation
-//   try {
-//     if (context.query.name !== "abhishek") {
-//       return {
-//         redirect: {
-//           destination: "/",
-//           permanent: false,
-//         },
-//       };
-//     }
-//   } catch (error) {
-//     return {
-//       redirect: {
-//         destination: "/",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       data: "he is admin",
-//     },
-//   };
-// }
-
-Index.getInitialProps = async (context) => {
-  console.log(context.query);
-
+export async function getServerSideProps(context) {
+  console.log(context.query)
   // admin validation
   try {
     if (context.query.name !== "abhishek") {
-      context.res.writeHead(307, { Location: "/" });
-      context.res.end();
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
     }
   } catch (error) {
-    context.res.writeHead(307, { Location: "/" });
-    context.res.end();
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
   }
 
-  return { data: "he island" };
-};
+  return {
+    props: {
+      data: "he is admin",
+    },
+  };
+}
 
 export default Index;

@@ -9,7 +9,7 @@ export default function Blogpostcard({ post }) {
     <Paper
       elevation={4}
       // variant='outlined'
-      className="lg:w-1/3 md:w-1/2 sm:w-1/2 m-2 p-4 justify-between flex flex-col make-com-dark h-fit "
+      className="lg:w-1/3 md:w-1/2 sm:w-1/2 m-2  p-4 justify-between flex flex-col make-com-dark h-fit max-[639px]:w-full "
       // data-aos="zoom-in-up"
       // data-aos-duration="500"
     >

@@ -22,7 +22,7 @@ export default function Post({ blogpost }) {
       {/* seo */}
 
       <h1 className="text-center font-normal text-3xl m-2 text-[#008080] lg:w-2/3 sm:w-5/6 max-[639px]:px-4 mx-auto">
-        {JSON.parse(blogpost).title}
+        {JSON.parse(blogpost)?.title}
       </h1>
 
       <article className="flex justify-center flex-col lg:w-2/3 sm:w-5/6 max-[639px]:px-4 mx-auto">
@@ -49,17 +49,19 @@ export default function Post({ blogpost }) {
           width={500}
           height={500}
           quality={60}
-          src={JSON.parse(blogpost).thumbnail}
-          className="rounded-md w-full m-auto my-2"
+          src={JSON.parse(blogpost)?.thumbnail}
+          className="rounded-md w-full m-auto my-2 max-h-[30rem]"
         />
 
         <SocialShare
           url={JSON.parse(blogpost).url}
           title={JSON.parse(blogpost).title}
-          description={JSON.parse(blogpost).seo_description}
-        />
+          description={
+            JSON.parse(blogpost)?.seo_description ||
+            `Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
+          }        />
 
-        <Articles html={JSON.parse(blogpost).editorContent} />
+        <Articles html={JSON.parse(blogpost)?.editorContent} />
       </article>
     </div>
   );
@@ -81,7 +83,7 @@ export async function getStaticPaths() {
     };
   });
 
-  // console.log(path[0].params);
+  console.log(path[0].params);
 
   return {
     paths: path,

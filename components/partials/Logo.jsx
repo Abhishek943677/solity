@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { Stick_No_Bills } from "next/font/google";
+import { Stick_No_Bills } from "@next/font/google";
 import Image from "next/image";
 
 const stick_No_Bills = Stick_No_Bills({

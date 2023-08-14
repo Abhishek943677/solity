@@ -1,4 +1,4 @@
-import { Bona_Nova } from 'next/font/google';
+import { Bona_Nova } from '@next/font/google';
 import Image from 'next/image';
 import React, { useState } from 'react';
 

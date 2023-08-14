@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Hind_Siliguri } from "next/font/google";
+import { Hind_Siliguri } from "@next/font/google";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],

@@ -11,6 +11,7 @@ import Spinner from "../../components/partials/Spinner";
 import Articles from "../../components/Articles";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
+import { getSession } from "next-auth/react";
 
 export default function Edit({ topicData }) {
   //   console.log(JSON.parse(data));
@@ -256,9 +257,24 @@ export default function Edit({ topicData }) {
 
 //---------------------- server side----------------------
 export async function getServerSideProps(context) {
-  // admin validation
+  
+  // this is user authentication
+  const session = await getSession({ req: context.req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/api/auth/signin",
+        permanent: false,
+      },
+    };
+  }
+
+  // this is admin validation
   try {
-    if (context.query.name !== "abhishek") {
+    const { data } = await axios.post(`${process.env.APP_URL}/api/auth/admin`, {
+      email: session.user.email,
+    });
+    if (!data) {
       return {
         redirect: {
           destination: "/",

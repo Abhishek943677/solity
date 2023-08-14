@@ -9,9 +9,13 @@ import Scrolltotop from "../partials/Scrolltotop";
 import DarkthemeSwitch from "../partials/DarkthemeSwitch";
 import BottomNav from "../BottomNav";
 import { useRouter } from "next/router";
-import { LinearProgress } from "@mui/material";
+import { Avatar, Button, Divider, LinearProgress, Paper } from "@mui/material";
+import LoginModal from "../login/LoginModal";
+import { signOut, useSession } from "next-auth/react";
 
 const Layout = ({ children }) => {
+  const { data: session } = useSession();
+
   const [showNav, setShowNav] = useState(false);
   const [dark, setDark] = useState(null);
   const [urlChange, setUrlChange] = useState(false);
@@ -47,7 +51,6 @@ const Layout = ({ children }) => {
     });
   }, []);
 
-
   // toggle button for dark mode
   const toggleDarkMode = (checked) => {
     if (checked) {
@@ -59,13 +62,12 @@ const Layout = ({ children }) => {
     }
   };
 
-
   return (
     <div>
       {/* change in url indicator */}
       {urlChange ? (
         <div className=" border-0 rounded-md fixed top-0 w-full bg-[#01c3dd] z-50">
-          <LinearProgress color="inherit"  sx={{ height: "5px" }} />
+          <LinearProgress color="inherit" sx={{ height: "5px" }} />
         </div>
       ) : (
         ""
@@ -73,22 +75,63 @@ const Layout = ({ children }) => {
 
       {/* main layout */}
       <nav className=" flex flex-col justify-between flex-grow sticky top-3 h-12 my-12 shadow-md rounded-md z-50 lg:w-[98vw] sm:w-[100vw] max-[419px]:w-[27.5rem] text-black">
-        <div className="flex justify-between flex-shrink">
+        <div className="flex flex-shrink justify-between">
           <Logo />
-          <div className="sm:w-[400px] lg:w-fit" id="dropdown"></div>
 
-          {!showNav ? (
-            <BiAlignMiddle
-              className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
-              onClick={() => setShowNav((prev) => !prev)}
-            />
-          ) : (
-            <CgClose
-              className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
-              onClick={() => setShowNav((prev) => !prev)}
-            />
-          )}
-          <ComputerNav />
+          <div className="flex justify-center my-auto ">
+
+            {/* login and signIn things */}
+            {session ? (
+              <div id="avatar-div">
+                <div className="flex cursor-pointer mb-3 my-auto  ">
+                  <Avatar className="w-fit" />
+                </div>
+
+                {/* profile modal */}
+                <div className="relative">
+                  <Paper
+                    elevation={3}
+                    id="profileModal"
+                    className={` list-none absolute top-[-10px] right-4 w-52 p-4 rounded make-com-dark`}
+                    // className={` list-none absolute md:top-[2.6rem] lg:top-[2.6rem] sm:top-[1.6rem] max-[640px]:top-[1.6rem] right-[11.4rem] p-4 rounded make-com-dark`}
+                  >
+                    <li>
+                      <p>{session.user.name}</p>
+                      <Divider />
+                    </li>
+                    <li>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        onClick={() => signOut()}
+                      >
+                        log out
+                      </Button>
+                    </li>
+                  </Paper>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <LoginModal />
+              </div>
+            )}
+
+
+
+            {!showNav ? (
+              <BiAlignMiddle
+                className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
+                onClick={() => setShowNav((prev) => !prev)}
+              />
+            ) : (
+              <CgClose
+                className="h-fit p-1 w-10 lg:hidden sm:block md:block mx-4"
+                onClick={() => setShowNav((prev) => !prev)}
+              />
+            )}
+            <ComputerNav />
+          </div>
         </div>
 
         <div>

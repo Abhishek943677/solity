@@ -26,6 +26,7 @@
     "jsdom": "^21.1.1",
     "mongodb": "^5.7.0",
     "next": "13.2.3",
+    "next-auth": "^4.23.0",
     "next-seo": "^5.15.0",
     "nodemailer": "^2.7.2",
     "react": "18.2.0",

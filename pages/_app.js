@@ -5,6 +5,8 @@ import "../styles/globals.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Seo from "../lib/Seo.js";
+import { SessionProvider } from "next-auth/react";
+
 
 
 function MyApp({ Component, pageProps }) {
@@ -22,12 +24,12 @@ function MyApp({ Component, pageProps }) {
     return <></>;
   } else {
     return (
-      <>
+      <SessionProvider session={pageProps.session}>
       <Seo />
       <Layout>
         <Component {...pageProps}  />
       </Layout>
-      </>
+      </SessionProvider>
     );
   }
 }

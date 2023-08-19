@@ -15,21 +15,21 @@ const Contact = () => {
   const [openFailureSnack, setOpenFailureSnack] = useState(false);
 
   const handleSend = async () => {
-    axios.post("/api/sendmail", { senderEmail, senderName, msg }).then(({ data }) => {
-      setSent(false);
-      console.log(data)
-      if (data.ok) {
-        // setSenderEmail("")
-        // setSenderName("")
-        // setMsg("")
+    // axios.post("/api/sendmail", { senderEmail, senderName, msg }).then(({ data }) => {
+    //   setSent(false);
+    //   console.log(data)
+    //   if (data.ok) {
+    //     // setSenderEmail("")
+    //     // setSenderName("")
+    //     // setMsg("")
 
-        setBarMsg(data.ok)
-        setOpenSuccessSnack(true);
-      } else {
-        setBarMsg(data.error)
-        setOpenFailureSnack(true);
-      }
-    });
+    //     setBarMsg(data.ok)
+    //     setOpenSuccessSnack(true);
+    //   } else {
+    //     setBarMsg(data.error)
+    //     setOpenFailureSnack(true);
+    //   }
+    // });
   };
 
   return (

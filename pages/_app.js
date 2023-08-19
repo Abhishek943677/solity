@@ -8,14 +8,14 @@ import Seo from "../lib/Seo.js";
 import { SessionProvider } from "next-auth/react";
 
 
-
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false);
 
   useEffect(() => {
     setShowChild(true);
     Aos.init();
   }, []);
+
   if (!showChild) {
     return null;
   }
@@ -34,4 +34,4 @@ function MyApp({ Component, pageProps }) {
   }
 }
 
-export default MyApp;
+export default App;

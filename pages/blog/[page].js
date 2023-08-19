@@ -52,12 +52,12 @@ export async function getStaticPaths() {
   const collection = db.collection(collectionName); // creating collection with name of trade  // console.log(postsList)
   const postsList = await collection.estimatedDocumentCount();
 
-  // console.log(postsList);
+  const totalTopicsPerPage = 8;
 
   // var path = [{ params: { page: "1" } }];
   var path = [];
 
-  for (let i = 1; i <= Math.ceil(postsList / 10); i++) {
+  for (let i = 1; i <= Math.ceil(postsList / totalTopicsPerPage); i++) {
     path = [...path, { params: { page: String(i) } }];
   }
 
@@ -72,7 +72,7 @@ export async function getStaticProps(context) {
   const UserBlogPage = context.params.page;
   var noOfPageForPagination;
 
-  const totalTopicsPerPage = 2;
+  const totalTopicsPerPage = 8;
   const skipped = totalTopicsPerPage * (Number(context.params.page) - 1);
 
   try {

@@ -9,8 +9,10 @@ import { Box } from "@mui/system";
 import { Button, Link, Paper } from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
+import RecentBlogs from "../components/RecentBlogs";
+import { mongoConnectBlogs } from "../lib/mongoConnectBlogs";
 
-const Page = () => {
+const Page = ({ recentPosts }) => {
   const slickSetting = {
     autoplay: true,
     dots: true,
@@ -88,10 +90,25 @@ const Page = () => {
         </Box>
       </div>
       <Aboutme />
-
+      <RecentBlogs recentPosts={recentPosts} />
       <Products />
     </div>
   );
 };
+export async function getStaticProps() {
+  const db = await mongoConnectBlogs(); // my function to connect with db
+
+  const collectionName = "blogs";
+  const collection = db.collection(collectionName); // creating collection with name of trade  // console.log(postsList)
+
+  const recentPosts =await collection.find().sort({ publish_date: -1 }).project({ title: 1, url: 1, thumbnail: 1,publish_date: 1,}).limit(4).toArray();
+  // console.log(recentPosts);
+  return {
+    props: {
+      recentPosts:JSON.stringify(recentPosts),
+    },
+    revalidate: 10, // In seconds
+  };
+}
 
 export default Page;

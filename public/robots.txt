@@ -3,4 +3,4 @@ User-agent: *
 Disallow: /admin/
 
 # Allow sitemap file
-Sitemap: https://solity.fun/sitemap.xml
+Sitemap: https://solity.tech/sitemap.xml

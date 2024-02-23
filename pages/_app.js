@@ -3,6 +3,7 @@ import Layout from "../components/layout/index.jsx";
 import "../styles/globals.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import website_details from "../config/website_details.json"
 
 // import Seo from "../lib/Seo.js";
 import { SessionProvider } from "next-auth/react";
@@ -26,9 +27,9 @@ function App({ Component, pageProps }) {
     return (
       <>
         <DefaultSeo
-          title="Solity | A Blog Page"
-          description={`Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `}
-          canonical="https://solity.fun/"
+          title={`${website_details.name} | A Blog Page`}
+          description={`Welcome to ${website_details.name}, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `}
+          canonical={website_details.full_url}
           additionalMetaTags={[
             {
               name: "keywords",
@@ -38,8 +39,8 @@ function App({ Component, pageProps }) {
           openGraph={{
             type: "website",
             locale: "en_IE",
-            url: "https://solity.fun/",
-            siteName: "Solity",
+            url: website_details.full_url,
+            siteName: website_details.name,
             images: [
               {
                 url: "/android-chrome-192x192.png",

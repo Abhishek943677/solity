@@ -1,6 +1,7 @@
 import { Link, ShareRounded } from "@mui/icons-material";
 import React, { useState } from "react";
 import { ShareSocial } from "react-share-social";
+import website_details from "../../config/website_details.json"
 
 export default function SocialShare({ url, title, description }) {
   const [linkCopied, setLinkCopied] = useState(false);
@@ -8,14 +9,14 @@ export default function SocialShare({ url, title, description }) {
   const shareData = {
     title: title || "Solity | A Blog Page",
     text: description || "Solity | A Blog Page",
-    url: `https://solity.fun/blog/post/${url}`,
+    url: `${website_details.full_url}/blog/post/${url}`,
   };
 
   return (
     <div className=" flex flex-row h-fit flex-wrap justify-end">
       {/* share social main component */}
       <ShareSocial
-        url={`https://solity.fun/blog/post/${url}`}
+        url={`${website_details.full_url}/blog/post/${url}`}
         socialTypes={[
           "facebook",
           "whatsapp",
@@ -51,7 +52,7 @@ export default function SocialShare({ url, title, description }) {
           onClick={async () => {
             try {
               await navigator.clipboard.writeText(
-                `https://solity.fun/blog/post/${url}`
+                `${website_details.full_url}/blog/post/${url}`
               );
               setLinkCopied(true);
               setTimeout(() => {

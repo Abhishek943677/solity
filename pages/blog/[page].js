@@ -3,7 +3,7 @@ import Blogpostcard from "../../components/Blogpostcard";
 import { mongoConnectBlogs } from "../../lib/mongoConnectBlogs";
 import PaginationModal from "../../components/Pagination";
 import { NextSeo } from "next-seo";
-
+import website_details from "../../config/website_details.json"
 export default function Page({
   postList,
   noOfPageForPagination,
@@ -14,14 +14,14 @@ export default function Page({
      
       {/* seo */}
       <NextSeo
-        title={`Solity | Blog Page ${UserBlogPage}`}
-        description={`Welocome solity blog page. Delve into a diverse array of topics. Join us on a journey of personal development, discovering fresh perspectives, and gaining knowledge. `}
-        canonical={`https://solity.fun/blog/page/${UserBlogPage}`}
+        title={`${website_details.name} | Blog Page ${UserBlogPage}`}
+        description={`Welocome ${website_details.name} blog page. Delve into a diverse array of topics. Join us on a journey of personal development, discovering fresh perspectives, and gaining knowledge. `}
+        canonical={`${website_details.full_url}/blog/page/${UserBlogPage}`}
       />
       {/* seo */}
 
       <h1 className="text-3xl text-center text-[#008080]">
-        Welcome to blogs at <span>solity.fun</span>
+        Welcome to blogs at <span>{website_details.name}</span>
       </h1>
 
       <div className="flex flex-row flex-wrap justify-center mx-auto my-6">

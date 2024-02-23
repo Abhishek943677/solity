@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ShareIcon from "@mui/icons-material/Share";
+import website_details from "../config/website_details.json"
+
 
 export default function Blogpostcard({ post }) {
   return (
@@ -46,7 +48,7 @@ export default function Blogpostcard({ post }) {
               const shareData = {
                 title: `${post.title}`,
                 text: `${post.title}`,
-                url: `https://solity.fun/blog/post/${post.url}`,
+                url: `${website_details.full_url}/blog/post/${post.url}`,
               };
               try {
                 await navigator.share(shareData);

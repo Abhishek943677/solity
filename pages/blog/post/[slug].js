@@ -4,6 +4,8 @@ import Articles from "../../../components/Articles";
 import { mongoConnectBlogs } from "../../../lib/mongoConnectBlogs";
 import { NextSeo } from "next-seo";
 import SocialShare from "../../../components/partials/SocialShare";
+import website_details from "../../../config/website_details.json"
+
 
 export default function Post({ blogpost }) {
   if (!blogpost) return <div>not found</div>;
@@ -12,12 +14,12 @@ export default function Post({ blogpost }) {
     <div>
       {/* seo */}
       <NextSeo
-        title={JSON.parse(blogpost)?.title || `solity.fun`}
+        title={JSON.parse(blogpost)?.title || `${website_details.short_url}`}
         description={
           JSON.parse(blogpost)?.seo_description ||
-          `Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
+          `Welcome to ${website_details.name}, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
         }
-        canonical={`https://solity.fun/blog/post/${JSON.parse(blogpost)?.url}}`}
+        canonical={`${website_details.full_url}/blog/post/${JSON.parse(blogpost)?.url}}`}
       />
       {/* seo */}
 
@@ -31,7 +33,7 @@ export default function Post({ blogpost }) {
           <div className="flex">
 
             <p className="mx-3">
-              {JSON.parse(blogpost)?.author || `From Solity`}
+              {JSON.parse(blogpost)?.author || `From ${website_details.name}`}
             </p>
 
             <p className="mx-3 text-emerald-700">{JSON.parse(blogpost)?.publish_date}</p>
@@ -58,7 +60,7 @@ export default function Post({ blogpost }) {
           title={JSON.parse(blogpost).title}
           description={
             JSON.parse(blogpost)?.seo_description ||
-            `Welcome to Solity, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
+            `Welcome to ${website_details.name}, a captivating blog page brimming with daily thoughts. As you journey through the pages of Solity, you'll find a sanctuary for introspection and self-discovery. It is an educational website where we share our passion for many random knowledgeable topics. `
           }        />
 
         <Articles html={JSON.parse(blogpost)?.editorContent} />

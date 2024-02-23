@@ -1,6 +1,7 @@
 import { Facebook, Google, Instagram, Pinterest, YouTube } from "@mui/icons-material";
 import { Paper, Box, Tooltip } from "@mui/material";
 import React from "react";
+import website_details from "../config/website_details.json"
 
 export default function Footer() {
   return (
@@ -40,9 +41,10 @@ export default function Footer() {
 
       <div class="py-4 text-center max-[419px]:w-[27.5rem] make-com-dark">
         © 2023 Copyright :
-        <a class="text-[#01c3dd]" href="https://solity.fun">
+        <a class="text-[#01c3dd]" href={`${website_details.full_url}`}>
           {" "}
-          solity.fun
+          {`${website_details.short_url}`}
+          
         </a>
       </div>
     </Box>

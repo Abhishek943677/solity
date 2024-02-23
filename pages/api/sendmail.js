@@ -1,55 +1,58 @@
-// import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
 
-// module.exports = async (req, res) => {
-//     if (req.method === "POST") {
-//         try {
-//             const senderName = req.body.senderName
-//             const senderEmail = req.body.senderEmail
-//             const msg = req.body.msg;
-//             const lastmsg=`msg from ${senderName} who's email : ${senderEmail} and message is : \n ` + msg
+module.exports = async (req, res) => {
+  if (req.method === "POST") {
+    try {
+      const senderName = req.body.senderName;
+      const senderEmail = req.body.senderEmail;
+      const msg = req.body.msg;
+      const lastmsg =
+        `msg from ${senderName} who's email : ${senderEmail} and message is :\n` +
+        msg;
 
-//             const transporter = nodemailer.createTransport({
-//                 host: 'smtp.elasticemail.com',
-//                 port: 2525,
-//                 auth: {
-//                     user: 'ak4838960@gmail.com',
-//                     pass: 'D6D8984067AA3D1FD06445AAEA2335EAE762'
-//                 }
-//             });
-//             // const transporter = nodemailer.createTransport({
-//             //     host: 'smtp.mailgun.org',
-//             //     port: 587,
-                
-//             //     auth: {
-//             //         user: 'solity@sandboxda5338fcf20c47a0b0e139f1f6f61a65.mailgun.org',
-//             //         pass: '87090009223'
-//             //     }
-//             // });
+      // Nodemailer transporter setup
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "solity.fun@gmail.com", // Replace with your Gmail email
+          pass: process.env.EMAIL_PASS, // Replace with your Gmail password or app password
+        //   pass: "sbhxgwbneqyxpzlk", // Replace with your Gmail password or app password
+        },
+      });
 
-//             const info = await transporter.sendMail({
-//                 from: `"solity.fun website" <ak4838960@gmail.com>`, // sender address
-//                 // from: `"${senderName}" <ak4838960@gmail.com>`, // sender address
-//                 to: "solity.fun@gmail.com", // list of receivers
-//                 subject: "Message From solity.fun", // Subject line
-//                 text: lastmsg, // plain text body
-//             });
+      //   this is for owner
+      const info = await transporter.sendMail({
+        to: "solity.fun@gmail.com", // list of receivers
+        subject: "Message From solity.tech user", // Subject line
+        text: lastmsg, // plain text body
+      });
 
-//             console.log(info)
+      // this is for user
+      const info2 = await transporter.sendMail({
+        from: `"solity" <solity.fun@gmail.com>`, // sender address
+        to: senderEmail, // list of receivers
+        subject: "Message From solity.tech", // Subject line
+        text: "thanks for contacting us. We received your email.", // plain text body
+      });
 
-//             transporter.sendMail(info, function (error, info) {
-//                 if (error) {
-//                     res.json({ error: "sorry , error occured while sending message" });
-//                     return res.end();
-//                 }
+      console.log(info);
 
-//                 res.json({ ok: "message sent , Thanks for contacting us" });
-//                 return res.end();
-//             });
+      transporter.sendMail(info, function (error, info) {
+        if (error) {
+          res.json({ error: "sorry , error occured while sending message" });
+          return res.end();
+        }
 
-//         } catch (error) {
-//             console.log(error)
-//             res.json({ error: "sorry , some error occured at server, please try after some time" });
-//             return res.end();
-//         }
-//     }
-// }
+        res.json({ ok: "message sent , Thanks for contacting us" });
+        return res.end();
+      });
+    } catch (error) {
+      console.log(error);
+      res.json({
+        error:
+          "sorry , some error occured at server, please try after some time",
+      });
+      return res.end();
+    }
+  }
+};

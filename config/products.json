@@ -1,13 +1,26 @@
 [
     {
         "title": "Mcqera | Online lessons | MCQs",
-        "urlToWebsite":"https://mcqera.vercel.app",
-        "description":"Discover a comprehensive collection of multiple choice questions (MCQs) on this website. Enhance your knowledge and test your skills with our diverse range of MCQs covering various subjects.",
-        "image":"https://i.ibb.co/K5pHSqD/Screenshot-53.png" },
+        "urlToWebsite": "https://mcqera.vercel.app",
+        "description": "Discover a comprehensive collection of multiple choice questions (MCQs) on this website. Enhance your knowledge and test your skills with our diverse range of MCQs covering various subjects.",
+        "image": "https://i.ibb.co/K5pHSqD/Screenshot-53.png"
+    },
     {
         "title": "Onlinemp3grab",
-        "urlToWebsite":"https://onlinemp3grab.vercel.app",
-        "description":"With our user-friendly interface, you can effortlessly download YouTube audio from any video link, making it a breeze to enjoy your favorite tunes. Experience seamless accessibility like never before!",
-        "image":"https://i.ibb.co/85MnVmv/Screenshot-54.png"
-        }
+        "urlToWebsite": "https://onlinemp3grab.vercel.app",
+        "description": "With our user-friendly interface, you can effortlessly download YouTube audio from any video link, making it a breeze to enjoy your favorite tunes. Experience seamless accessibility like never before!",
+        "image": "https://i.ibb.co/85MnVmv/Screenshot-54.png"
+    },
+    {
+        "title": "To Do List",
+        "urlToWebsite": "https://todolist.solity.tech",
+        "description": "Manage tasks efficiently with our intuitive to-do list app. Stay organized, prioritize your goals, and increase productivity with easy task management. Access your to-do list anytime, anywhere, and never forget an important task again.",
+        "image": "https://i.ibb.co/Jq2f8df/Screenshot-2024-04-24-214052.png"
+    },
+    {
+        "title": "captcha solver api",
+        "urlToWebsite": "https://captcha-solver-api.solity.tech/",
+        "description":"Empower your business with our captcha solver API, now available on RapidAPI (https://rapidapi.com/ak4838960/api/image-to-text-ocr4). Seamlessly integrate our robust solution into your applications to effortlessly convert captcha images into text",
+        "image":"https://i.ibb.co/GJQ4bvW/Screenshot-2024-04-24-214951.png"
+    }
 ]
